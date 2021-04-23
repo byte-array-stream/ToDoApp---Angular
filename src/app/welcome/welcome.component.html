@@ -1,0 +1,6 @@
+<div class="container">
+    <h2> Hi {{loggedInUserName}} !!</h2><br>
+    <h3>Welcome to ToDos app. View and update your todos <a routerLink="/todo">click here</a></h3>
+    <h4>Get customized welcome message <button class="btn btn-success" (click)="getCustomMessageForUser()">Click here</button></h4>
+    <h5 *ngIf="customWelcomeMessage">{{customWelcomeMessage}}</h5>
+</div>

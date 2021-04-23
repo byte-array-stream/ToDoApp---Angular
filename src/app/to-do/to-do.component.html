@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>My Todos</h1>
+    <h6 class="alert alert-success" *ngIf="errorMessage">{{errorMessage}}</h6>
+<table class="table">
+    <thead>
+        <tr>
+        <th>Task ID</th>
+        <th>Description</th>
+        <th>Created Date</th>
+        <th>Completed?</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of todoListItems">
+            <td>{{item.taskId}}</td>
+            <td>{{item.taskDesc}}</td>
+            <td>{{item.createdTs | date : 'MMMM-dd-yyyy'}}</td>
+            <td>{{item.isCompleted}}</td>
+            <td>
+                <button class="btn btn-warning" (click)="deleteTask(item.taskId)">Delete</button>&nbsp;
+                <button class="btn btn-success" (click)="updateTask('update',item.taskId)">Update</button>
+            </td>
+        </tr>
+        <tr>
+            <button class="button-success" (click)="updateTask('create-task','')">Create</button>
+        </tr>
+    </tbody>
+</table>
+</div>

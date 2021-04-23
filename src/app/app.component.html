@@ -1,0 +1,25 @@
+<!-- This file can be used as writing common UI/Logic across pages -->
+<!-- Don't ise href in anchor tag, because it will reload entire page. 
+Rather always use routerLink -->
+<header>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div>
+        <a class="navbar-brand" href="/">ToDos</a>
+      </div>
+      <ul class="navbar-nav">
+        <li><a routerLink="welcome/ravi" class="nav-link">Home</a></li>
+        <li><a routerLink="todo" class="nav-link">My Todos</a></li>
+      </ul>
+      <ul class="navbar-nav navbar-collapse justify-content-end">
+        <li *ngIf="!authService.isUserLoggedIn()"><a routerLink="login" class="nav-link"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+        <!-- <li *ngIf="authService.isUserLoggedIn()"><a class="nav-link"> {{loggedInUserName}}</a></li> -->
+        <li *ngIf="authService.isUserLoggedIn()"><a (click)="logout()" class="nav-link"> Logout</a></li>
+      </ul>
+  </nav>
+</header>
+<body>
+</body>
+<footer class="footer navbar-dark bg-dark">
+ByteArray &copy; All rights reserved.
+</footer>
+<router-outlet></router-outlet>

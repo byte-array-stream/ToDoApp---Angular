@@ -1,0 +1,20 @@
+<div class="container">
+    <h2>Update Todo task..</h2>
+    <h6 class="alert alet-warning">Invalid data</h6>
+   
+        <fieldset class="form-group" >
+            <div>
+                <label>Task Description</label>
+                <input type="text" class="form-control" name="taskDesc" [(ngModel)]="todoTask.taskDesc">
+            </div>
+        </fieldset>
+        <fieldset class="form-group">
+            <div>
+                <label>Created Date</label>
+                <input type="date" class="form-control" name="createdTs" [ngModel]="todoTask.createdTs | date:'yyyy-MM-dd'" 
+                (ngModelChange)="todoTask.createdTs = $event">
+            </div>
+        </fieldset>
+        <button (click)="updateToDoTask()">Update</button>
+    
+</div>
