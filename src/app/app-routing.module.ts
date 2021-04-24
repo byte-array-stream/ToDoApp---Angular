@@ -11,7 +11,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 const routes: Routes = [
   { path:"", component:LoginComponent },
   { path:"login", component:LoginComponent },
-  { path:"welcome/:name",component:WelcomeComponent, canActivate:[AuthenticationService]},
+  { path:"welcome/:name",component:WelcomeComponent},
   { path:"update/:taskId", component:UpdateTodoComponent},
   { path:"create-task/:taskId", component:CreateTodoComponent},
   { path:"error", component:ErrorComponent },
