@@ -11,7 +11,7 @@ import { TodotaskService } from '../restapi/todotask.service';
 export class UpdateTodoComponent implements OnInit {
 
   updateMessage:string;
-  todoTask:ToDoBean;
+  todoTask:any;
 
   constructor(private apiService:TodotaskService, private activatedRouter:ActivatedRoute,
       private router:Router) { }
@@ -21,7 +21,8 @@ export class UpdateTodoComponent implements OnInit {
     let taskId:string;
     this.todoTask = new ToDoBean();
     taskId = this.activatedRouter.snapshot.paramMap.get("taskId");
-    this.apiService.fetchTaskById("RAVI", taskId).subscribe(
+    console.log(taskId);
+    this.apiService.fetchUserkById(taskId).subscribe(
       successResp => {
         this.todoTask = successResp;
       },
@@ -31,14 +32,14 @@ export class UpdateTodoComponent implements OnInit {
       )
   }
 
-  updateToDoTask(){
-    this.apiService.updateTodoTask('RAVI', this.todoTask.taskId, this.todoTask).subscribe(
-      successResp => {
-        this.router.navigate(["todo"]);
-      },
-      errorResp => {
-        this.updateMessage = errorResp.error.error.message;
-      }
-    );
-  }
+  // updateToDoTask(){
+  //   this.apiService.updateTodoTask('RAVI', this.todoTask.taskId, this.todoTask).subscribe(
+  //     successResp => {
+  //       this.router.navigate(["todo"]);
+  //     },
+  //     errorResp => {
+  //       this.updateMessage = errorResp.error.error.message;
+  //     }
+  //   );
+  // }
 }

@@ -31,4 +31,8 @@ export class TodotaskService {
     return this.httpClient.post<ToDoBean>(`http://localhost:8080/create-task/${userName}`,todoTask);
   }
 
+  fetchUserkById(userId:string,){
+    return this.httpClient.get(`https://reqres.in/api/users/${userId}`);
+  }
+
 }

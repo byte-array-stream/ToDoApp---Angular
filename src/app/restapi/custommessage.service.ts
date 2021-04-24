@@ -19,12 +19,7 @@ export class CustomMessageService {
     /*
       Subscribe takes three params. 1. FOr success response. 2. For error response 3. After successful completion. this method doesn't take parameters.
     */
-    this.httpClient.get("http://localhost:8080/custom-message", {responseType: 'text'}).subscribe(
-      successResponse => this.handleSuccessResponse(successResponse), // Arrow function taking successResponse as parameter
-      errorResponse => this.handleErrorResponse(errorResponse),
-      () => console.log("COmpleted") // Arrow function with no parameter
-    );
-    return this.customMessage;
+    return this.httpClient.get("https://reqres.in/api/users?delay=3", {responseType: 'json'});
   }
 
   // Similar to above, only difference ti method with send path param as well. Use "TICK ``" for path params.
@@ -39,11 +34,13 @@ export class CustomMessageService {
 
   // Since we sending response into a bean. so data will come in json in key and value form
   private handleSuccessResponseForUser(successResp){
+    console.log(successResp);
     this.customMessage = successResp.customMessage;
   }
 
   private handleSuccessResponse(successResp){
-    this.customMessage = successResp;
+    console.log(successResp.data);
+    this.customMessage = successResp.data[0].email;
   }
 
   private handleErrorResponse(errorResp){

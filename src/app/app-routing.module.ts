@@ -12,7 +12,7 @@ const routes: Routes = [
   { path:"", component:LoginComponent },
   { path:"login", component:LoginComponent },
   { path:"welcome/:name",component:WelcomeComponent, canActivate:[AuthenticationService]},
-  { path:"update/:taskId", component:UpdateTodoComponent, canActivate:[AuthenticationService]},
+  { path:"update/:taskId", component:UpdateTodoComponent},
   { path:"create-task/:taskId", component:CreateTodoComponent},
   { path:"error", component:ErrorComponent },
   { path:"todo", component:ToDoComponent, canActivate:[AuthenticationService]},
